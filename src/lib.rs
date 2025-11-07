@@ -1,11 +1,11 @@
-//! QSpec Financial Agent
+//! AI Master Financial Agent
 //!
-//! A comprehensive financial analysis and automation tool designed to work with
-//! Quicken data formats and provide AI-powered insights.
+//! A comprehensive AI-powered financial analysis and automation tool designed to work with
+//! Quicken data formats and provide intelligent financial insights.
 //!
 //! ## License
 //!
-//! Licensed under the MIT License. See LICENSE file for details.
+//! Licensed under the Apache-2.0 License. See LICENSE file for details.
 //! For commercial licensing options, contact daveboyd777@gmail.com
 
 pub mod agent;

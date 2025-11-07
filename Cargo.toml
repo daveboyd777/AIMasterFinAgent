@@ -3,10 +3,10 @@ name = "qspec_fin_agent"
 version = "0.1.0"
 edition = "2021"
 authors = ["daveboyd777 <daveboyd777@gmail.com>"]
-description = "QSpec Financial Agent - AI-powered financial analysis and automation tool compatible with Quicken"
-license = "MIT"
+description = "AI Master Financial Agent - AI-powered financial analysis and automation tool compatible with Quicken"
+license = "Apache-2.0"
 readme = "README.md"
-repository = "https://github.com/daveboyd777/QSpecFinAgent"
+repository = "https://github.com/daveboyd777/AIMasterFinAgent"
 keywords = ["finance", "quicken", "ai", "agent", "automation"]
 categories = ["finance", "command-line-utilities"]
 

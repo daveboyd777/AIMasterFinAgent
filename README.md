@@ -1,6 +1,6 @@
-# QSpec Financial Agent
+# AI Master Financial Agent
 
-A comprehensive financial analysis and automation tool designed to work with Quicken data formats and provide AI-powered insights.
+A comprehensive AI-powered financial analysis and automation tool designed to work with Quicken data formats and provide intelligent financial insights.
 
 ## Features
 
@@ -24,8 +24,8 @@ A comprehensive financial analysis and automation tool designed to work with Qui
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/QSpecFinAgent.git
-cd QSpecFinAgent
+git clone https://github.com/daveboyd777/AIMasterFinAgent.git
+cd AIMasterFinAgent
 ```
 
 2. Build the project:
@@ -228,7 +228,7 @@ The project follows standard Rust conventions:
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the Apache-2.0 License - see the [LICENSE](LICENSE) file for details.
 
 ### Commercial Licensing
 
