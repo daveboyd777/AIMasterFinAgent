@@ -5,7 +5,7 @@ use std::collections::HashMap;
 use crate::data::{Transaction, TransactionType};
 
 /// Utility functions for financial calculations and data processing
-
+///
 /// Calculate compound interest
 pub fn calculate_compound_interest(
     principal: Decimal,
@@ -21,7 +21,7 @@ pub fn calculate_compound_interest(
     // Manual exponentiation for Decimal
     let mut result = principal;
     for _ in 0..total_compounds {
-        result = result * base;
+        result *= base;
     }
     
     result
@@ -88,6 +88,7 @@ pub fn calculate_net_worth(assets: &[Decimal], liabilities: &[Decimal]) -> Decim
 /// Date utility functions
 pub mod date_utils {
     use super::*;
+    use chrono::{Datelike, Timelike};
 
     /// Get the start of the month for a given date
     pub fn start_of_month(date: DateTime<Utc>) -> DateTime<Utc> {
@@ -147,6 +148,7 @@ pub mod date_utils {
 /// Transaction utility functions
 pub mod transaction_utils {
     use super::*;
+    use chrono::Datelike;
 
     /// Group transactions by month
     pub fn group_by_month(
@@ -283,6 +285,7 @@ pub mod file_utils {
 mod tests {
     use super::*;
     use rust_decimal_macros::dec;
+    use chrono::{TimeZone, Datelike, Timelike};
     use uuid::Uuid;
 
     #[test]
@@ -308,8 +311,8 @@ mod tests {
         
         assert_eq!(averages.len(), 3);
         assert_eq!(averages[0], dec!(105.00)); // (100 + 110 + 105) / 3
-        assert_eq!(averages[1], dec!(111.67).round_dp(2)); // (110 + 105 + 120) / 3
-        assert_eq!(averages[2], dec!(113.33).round_dp(2)); // (105 + 120 + 115) / 3
+        assert_eq!(averages[1].round_dp(2), dec!(111.67)); // (110 + 105 + 120) / 3
+        assert_eq!(averages[2].round_dp(2), dec!(113.33)); // (105 + 120 + 115) / 3
     }
 
     #[test]

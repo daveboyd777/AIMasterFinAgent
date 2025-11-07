@@ -1,8 +1,7 @@
-use serde::{Deserialize, Serialize};
 use chrono::{DateTime, Utc};
-use uuid::Uuid;
 use rust_decimal::Decimal;
-use std::collections::HashMap;
+use serde::{Deserialize, Serialize};
+use uuid::Uuid;
 
 /// Represents a financial account (checking, savings, credit card, etc.)
 #[derive(Debug, Clone, Serialize, Deserialize, PartialEq)]
@@ -245,7 +244,7 @@ mod tests {
     #[test]
     fn test_financial_data() {
         let mut data = FinancialData::new();
-        
+
         let account = Account::new(
             "Test Account".to_string(),
             AccountType::Checking,
@@ -253,9 +252,9 @@ mod tests {
             "USD".to_string(),
         );
         let account_id = account.id;
-        
+
         data.add_account(account);
-        
+
         let mut transaction = Transaction::new(
             account_id,
             Utc::now(),
@@ -265,9 +264,9 @@ mod tests {
         );
         transaction.category = Some("Groceries".to_string());
         transaction.payee = Some("Store ABC".to_string());
-        
+
         data.add_transaction(transaction);
-        
+
         assert_eq!(data.accounts.len(), 1);
         assert_eq!(data.transactions.len(), 1);
         assert_eq!(data.categories.len(), 1);
@@ -280,7 +279,7 @@ mod tests {
     fn test_account_balance_calculation() {
         let mut data = FinancialData::new();
         let account_id = Uuid::new_v4();
-        
+
         // Add some transactions
         let credit = Transaction::new(
             account_id,
@@ -289,7 +288,7 @@ mod tests {
             "Initial deposit".to_string(),
             TransactionType::Credit,
         );
-        
+
         let debit = Transaction::new(
             account_id,
             Utc::now(),
@@ -297,10 +296,10 @@ mod tests {
             "Purchase".to_string(),
             TransactionType::Debit,
         );
-        
+
         data.add_transaction(credit);
         data.add_transaction(debit);
-        
+
         let balance = data.calculate_account_balance(&account_id);
         assert_eq!(balance, dec!(750.00)); // 1000 - 250
     }
@@ -314,14 +313,14 @@ mod tests {
             "Test".to_string(),
             TransactionType::Debit,
         );
-        
+
         assert!(!transaction.cleared);
         assert!(!transaction.reconciled);
-        
+
         transaction.mark_cleared();
         assert!(transaction.cleared);
         assert!(!transaction.reconciled);
-        
+
         transaction.mark_reconciled();
         assert!(transaction.cleared);
         assert!(transaction.reconciled);
