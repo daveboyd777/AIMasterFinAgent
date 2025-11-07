@@ -1,0 +1,87 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "cargo build",
+            "type": "shell",
+            "command": "wsl",
+            "args": ["-d", "Ubuntu", "-e", "bash", "-c", "cd /mnt/i/prjs/QSpecFinAgent && source ~/.cargo/env && cargo build"],
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "problemMatcher": ["$rustc"]
+        },
+        {
+            "label": "cargo test",
+            "type": "shell", 
+            "command": "wsl",
+            "args": ["-d", "Ubuntu", "-e", "bash", "-c", "cd /mnt/i/prjs/QSpecFinAgent && source ~/.cargo/env && cargo test"],
+            "group": "test",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "problemMatcher": ["$rustc"]
+        },
+        {
+            "label": "cargo run",
+            "type": "shell",
+            "command": "wsl", 
+            "args": ["-d", "Ubuntu", "-e", "bash", "-c", "cd /mnt/i/prjs/QSpecFinAgent && source ~/.cargo/env && cargo run"],
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always", 
+                "focus": false,
+                "panel": "shared"
+            },
+            "problemMatcher": ["$rustc"]
+        },
+        {
+            "label": "cargo check",
+            "type": "shell",
+            "command": "wsl",
+            "args": ["-d", "Ubuntu", "-e", "bash", "-c", "cd /mnt/i/prjs/QSpecFinAgent && source ~/.cargo/env && cargo check"],
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false, 
+                "panel": "shared"
+            },
+            "problemMatcher": ["$rustc"]
+        },
+        {
+            "label": "cargo tarpaulin",
+            "type": "shell",
+            "command": "wsl",
+            "args": ["-d", "Ubuntu", "-e", "bash", "-c", "cd /mnt/i/prjs/QSpecFinAgent && source ~/.cargo/env && cargo tarpaulin --out html"],
+            "group": "test",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            }
+        },
+        {
+            "label": "cargo nextest",
+            "type": "shell",
+            "command": "wsl",
+            "args": ["-d", "Ubuntu", "-e", "bash", "-c", "cd /mnt/i/prjs/QSpecFinAgent && source ~/.cargo/env && cargo nextest run"],
+            "group": "test", 
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            }
+        }
+    ]
+}

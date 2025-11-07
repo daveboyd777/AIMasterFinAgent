@@ -1,0 +1,99 @@
+[package]
+name = "qspec_fin_agent"
+version = "0.1.0"
+edition = "2021"
+authors = ["daveboyd777 <daveboyd777@gmail.com>"]
+description = "AI Master Financial Agent - AI-powered financial analysis and automation tool compatible with Quicken"
+license = "Apache-2.0"
+readme = "README.md"
+repository = "https://github.com/daveboyd777/AIMasterFinAgent"
+keywords = ["finance", "quicken", "ai", "agent", "automation"]
+categories = ["finance", "command-line-utilities"]
+
+[dependencies]
+# Core dependencies
+tokio = { version = "1.0", features = ["full"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+anyhow = "1.0"
+thiserror = "1.0"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+clap = { version = "4.0", features = ["derive"] }
+
+# Financial and data processing
+chrono = { version = "0.4", features = ["serde"] }
+uuid = { version = "1.0", features = ["v4", "serde"] }
+rust_decimal = { version = "1.0", features = ["serde"] }
+rust_decimal_macros = "1.36"
+regex = "1.0"
+
+# XML processing for Quicken compatibility
+quick-xml = { version = "0.36", features = ["serialize"] }
+xmlparser = "0.13"
+
+# HTTP client and API integration
+reqwest = { version = "0.12", features = ["json", "rustls-tls"] }
+url = "2.0"
+
+# Database support
+sqlx = { version = "0.8", features = ["runtime-tokio-rustls", "sqlite", "chrono", "uuid"] }
+
+# Configuration
+config = "0.14"
+directories = "5.0"
+toml = "0.8"
+dirs = "5.0"
+
+# Async utilities
+futures = "0.3"
+async-trait = "0.1"
+
+[dev-dependencies]
+# Testing framework
+tokio-test = "0.4"
+mockall = "0.13"
+wiremock = "0.6"
+tempfile = "3.0"
+assert_matches = "1.5"
+proptest = "1.0"
+criterion = { version = "0.5", features = ["html_reports"] }
+
+# Test utilities for financial calculations
+approx = "0.5"
+
+[lib]
+name = "qspec_fin_agent"
+path = "src/lib.rs"
+
+[[bin]]
+name = "qspec"
+path = "src/main.rs"
+
+[profile.dev]
+debug = true
+overflow-checks = true
+
+[profile.release]
+debug = false
+lto = true
+codegen-units = 1
+panic = "abort"
+strip = "symbols"
+
+[profile.test]
+debug = true
+overflow-checks = true
+
+# Benchmarking profile
+[profile.bench]
+debug = false
+lto = true
+codegen-units = 1
+
+# Features for conditional compilation
+[features]
+default = ["quicken-import", "ai-analysis"]
+quicken-import = []
+ai-analysis = []
+experimental = []
