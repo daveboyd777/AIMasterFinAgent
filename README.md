@@ -230,6 +230,22 @@ The project follows standard Rust conventions:
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
+### Commercial Licensing
+
+QSpecFinAgent is available under the MIT License for open source projects. For commercial applications that require proprietary licensing or additional features, please contact [daveboyd777@gmail.com](mailto:daveboyd777@gmail.com) for commercial licensing options.
+
+**Commercial Use Cases:**
+- Enterprise financial software integration
+- Proprietary financial analysis tools
+- White-label financial applications
+- Custom development and support contracts
+
+The MIT License allows commercial use, but we also offer:
+- Extended support and maintenance
+- Priority feature development
+- Custom integrations and modifications
+- Enterprise-grade SLA and support
+
 ## Acknowledgments
 
 - Quicken and Intuit for the QIF format specification

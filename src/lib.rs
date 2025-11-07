@@ -2,6 +2,11 @@
 //!
 //! A comprehensive financial analysis and automation tool designed to work with
 //! Quicken data formats and provide AI-powered insights.
+//!
+//! ## License
+//!
+//! Licensed under the MIT License. See LICENSE file for details.
+//! For commercial licensing options, contact daveboyd777@gmail.com
 
 pub mod agent;
 pub mod analysis;
